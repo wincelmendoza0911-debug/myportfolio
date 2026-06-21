@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wincel A. Mendoza | Professional Portfolio</title>
+<meta name="description" content="Professional portfolio of Wincel A. Mendoza, IT graduate specializing in web development and graphic design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    :root{
+        --primary:#0f172a;
+        --secondary:#1e293b;
+        --accent:#2563eb;
+        --accent-light:#3b82f6;
+        --text:#f8fafc;
+        --text-dark:#0f172a;
+        --text-gray:#64748b;
+        --bg:#ffffff;
+        --bg-light:#f8fafc;
+        --border:#e2e8f0;
+        --shadow:0 10px 30px rgba(15, 23, 42, 0.08);
+        --radius:20px;
+    }
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family:'Inter',sans-serif;
+        line-height:1.7;
+        color:var(--text-dark);
+        background:var(--bg);
+    }
+
+    .container{
+        max-width:1200px;
+        margin:0 auto;
+        padding:0 24px;
+    }
+
+    /* Navigation */
+    .navbar{
+        position:fixed;
+        top:0;
+        width:100%;
+        background:rgba(255,255,255,0.95);
+        backdrop-filter:blur(10px);
+        border-bottom:1px solid var(--border);
+        z-index:1000;
+    }
+
+    .nav-content{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:18px 0;
+    }
+
+    .logo{
+        font-size:1.3rem;
+        font-weight:800;
+        color:var(--primary);
+        text-decoration:none;
+    }
+
+    .nav-links{
+        display:flex;
+        gap:32px;
+        list-style:none;
+    }
+
+    .nav-links a{
+        text-decoration:none;
+        color:var(--text-dark);
+        font-weight:500;
+        transition:0.3s;
+    }
+
+    .nav-links a:hover{
+        color:var(--accent);
+    }
+
+    /* Hero Section */
+    .hero{
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        background:linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        color:var(--text);
+        padding-top:80px;
+    }
+
+    .hero-content{
+        display:grid;
+        grid-template-columns:1fr 380px;
+        gap:80px;
+        align-items:center;
+    }
+
+    .hero-text h1{
+        font-size:clamp(2.8rem, 6vw, 5rem);
+        font-weight:800;
+        line-height:1.1;
+        margin-bottom:20px;
+    }
+
+    .hero-text .subtitle{
+        font-size:1.3rem;
+        color:#cbd5e1;
+        margin-bottom:24px;
+        font-weight:500;
+    }
+
+    .hero-text .description{
+        font-size:1.1rem;
+        color:#e2e8f0;
+        max-width:600px;
+        margin-bottom:40px;
+    }
+
+    .hero-buttons{
+        display:flex;
+        gap:16px;
+        flex-wrap:wrap;
+    }
+
+    .btn{
+        padding:16px 32px;
+        border-radius:12px;
+        text-decoration:none;
+        font-weight:600;
+        transition:0.3s;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+    }
+
+    .btn-primary{
+        background:var(--accent);
+        color:white;
+    }
+
+    .btn-primary:hover{
+        background:var(--accent-light);
+        transform:translateY(-2px);
+    }
+
+    .btn-outline{
+        border:2px solid rgba(255,255,255,0.2);
+        color:white;
+    }
+
+    .btn-outline:hover{
+        background:rgba(255,255,255,0.1);
+    }
+
+    /* Profile Card */
+    .profile-card{
+        background:rgba(255,255,255,0.08);
+        backdrop-filter:blur(10px);
+        border:1px solid rgba(255,255,255,0.1);
+        border-radius:var(--radius);
+        padding:40px;
+        text-align:center;
+    }
+
+    .profile-image{
+        width:220px;
+        height:220px;
+        margin:0 auto 24px;
+        border-radius:50%;
+        background:linear-gradient(135deg, var(--accent), var(--accent-light));
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:4rem;
+        font-weight:800;
+        color:white;
+        border:6px solid rgba(255,255,255,0.2);
+        overflow:hidden;
+    }
+
+    .profile-image img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    .profile-card h3{
+        font-size:1.5rem;
+        margin-bottom:8px;
+    }
+
+    .profile-card p{
+        color:#cbd5e1;
+        margin-bottom:24px;
+    }
+
+    .profile-info{
+        display:grid;
+        gap:16px;
+        text-align:left;
+    }
+
+    .info-item{
+        display:flex;
+        justify-content:space-between;
+        padding-bottom:12px;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+    }
+
+    .info-label{
+        color:#94a3b8;
+        font-size:0.95rem;
+    }
+
+    .info-value{
+        font-weight:600;
+        font-size:0.95rem;
+    }
+
+    /* Sections */
+    section{
+        padding:100px 0;
+    }
+
+    .section-title{
+        text-align:center;
+        margin-bottom:60px;
+    }
+
+    .section-title h2{
+        font-size:clamp(2rem, 5vw, 3rem);
+        font-weight:800;
+        color:var(--primary);
+        margin-bottom:16px;
+    }
+
+    .section-title p{
+        color:var(--text-gray);
+        max-width:600px;
+        margin:0 auto;
+        font-size:1.1rem;
+    }
+
+    /* About Section */
+    .about{
+        background:var(--bg-light);
+    }
+
+    .about-content{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:60px;
+        align-items:start;
+    }
+
+    .about-text{
+        background:white;
+        padding:40px;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow);
+    }
+
+    .about-text h3{
+        font-size:1.8rem;
+        margin-bottom:24px;
+        color:var(--primary);
+    }
+
+    .about-text p{
+        color:var(--text-gray);
+        margin-bottom:20px;
+    }
+
+    .stats-grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:24px;
+    }
+
+    .stat-card{
+        background:white;
+        padding:32px;
+        border-radius:var(--radius);
+        text-align:center;
+        box-shadow:var(--shadow);
+        transition:0.3s;
+    }
+
+    .stat-card:hover{
+        transform:translateY(-5px);
+    }
+
+    .stat-number{
+        font-size:2.5rem;
+        font-weight:800;
+        color:var(--accent);
+        margin-bottom:8px;
+    }
+
+    .stat-label{
+        color:var(--text-gray);
+        font-weight:600;
+    }
+
+    /* Skills */
+    .skills-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:24px;
+    }
+
+    .skill-card{
+        background:white;
+        padding:32px;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow);
+        transition:0.3s;
+        border:1px solid var(--border);
+    }
+
+    .skill-card:hover{
+        transform:translateY(-5px);
+        border-color:var(--accent);
+    }
+
+    .skill-card h3{
+        font-size:1.3rem;
+        margin-bottom:16px;
+        color:var(--primary);
+    }
+
+    .skill-card ul{
+        list-style:none;
+    }
+
+    .skill-card li{
+        padding:10px 0;
+        color:var(--text-gray);
+        border-bottom:1px solid var(--border);
+    }
+
+    .skill-card li:last-child{
+        border-bottom:none;
+    }
+
+    /* Education */
+    .education{
+        background:var(--bg-light);
+    }
+
+    .timeline{
+        max-width:800px;
+        margin:0 auto;
+        position:relative;
+    }
+
+    .timeline::before{
+        content:'';
+        position:absolute;
+        left:20px;
+        top:0;
+        bottom:0;
+        width:2px;
+        background:var(--accent);
+    }
+
+    .timeline-item{
+        position:relative;
+        padding-left:80px;
+        margin-bottom:50px;
+    }
+
+    .timeline-dot{
+        position:absolute;
+        left:12px;
+        top:8px;
+        width:18px;
+        height:18px;
+        background:var(--accent);
+        border-radius:50%;
+        border:4px solid white;
+        box-shadow:0 0 0 4px rgba(37,99,235,0.2);
+    }
+
+    .timeline-content{
+        background:white;
+        padding:32px;
+        border-radius:var(--radius);
+        box-shadow:var(--shadow);
+    }
+
+    .timeline-year{
+        color:var(--accent);
+        font-weight:700;
+        font-size:0.95rem;
+        margin-bottom:8px;
+    }
+
+    .timeline-content h3{
+        font-size:1.4rem;
+        margin-bottom:8px;
+        color:var(--primary);
+    }
+
+    .timeline-content p{
+        color:var(--text-gray);
+    }
+
+    .honor-badge{
+        display:inline-block;
+        background:rgba(37,99,235,0.1);
+        color:var(--accent);
+        padding:6px 14px;
+        border-radius:20px;
+        font-size:0.85rem;
+        font-weight:700;
+        margin-top:12px;
+    }
+
+    /* Contact */
+    .contact-content{
+        max-width:800px;
+        margin:0 auto;
+    }
+
+    .contact-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:24px;
+        margin-top:50px;
+    }
+
+    .contact-card{
+        background:white;
+        padding:32px;
+        border-radius:var(--radius);
+        text-align:center;
+        box-shadow:var(--shadow);
+        border:1px solid var(--border);
+        transition:0.3s;
+    }
+
+    .contact-card:hover{
+        transform:translateY(-5px);
+        border-color:var(--accent);
+    }
+
+    .contact-icon{
+        width:64px;
+        height:64px;
+        background:rgba(37,99,235,0.1);
+        border-radius:16px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin:0 auto 20px;
+        font-size:1.8rem;
+    }
+
+    .contact-card h3{
+        margin-bottom:12px;
+        color:var(--primary);
+    }
+
+    .contact-card a{
+        color:var(--accent);
+        text-decoration:none;
+        font-weight:600;
+    }
+
+    .contact-card p{
+        color:var(--text-gray);
+    }
+
+    /* Footer */
+    footer{
+        background:var(--primary);
+        color:white;
+        text-align:center;
+        padding:40px 0;
+    }
+
+    /* Responsive */
+    @media (max-width:968px){
+        .hero-content,
+        .about-content{
+            grid-template-columns:1fr;
+            text-align:center;
+        }
+
+        .hero-text .description{
+            margin-left:auto;
+            margin-right:auto;
+        }
+
+        .hero-buttons{
+            justify-content:center;
+        }
+
+        .stats-grid{
+            grid-template-columns:1fr;
+        }
+    }
+
+    @media (max-width:768px){
+        .nav-links{
+            display:none;
+        }
+
+        .hero{
+            padding-top:120px;
+            padding-bottom:80px;
+        }
+
+        section{
+            padding:80px 0;
+        }
+
+        .timeline-item{
+            padding-left:60px;
+        }
+
+        .profile-image{
+            width:180px;
+            height:180px;
+            font-size:3rem;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-content">
+            <a href="#" class="logo">Wincel Mendoza</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Wincel A. Mendoza</h1>
+                <p class="subtitle">IT Graduate • Web Developer • Graphic Designer</p>
+                <p class="description">
+                    Motivated and detail-oriented Information Technology graduate with a strong passion for web development and graphic design. Skilled in creating professional websites, social media graphics, presentations, and digital content using modern design and development tools.
+                </p>
+                <div class="hero-buttons">
+                    <a href="mailto:Wincemendoza0911@gmail.com" class="btn btn-primary">Get In Touch</a>
+                    <a href="#skills" class="btn btn-outline">View Skills</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="./profile.jpg" alt="Profile Picture"> 
+                </div>
+                <h3>Wincel A. Mendoza</h3>
+                <p>BS Information Technology Graduate</p>
+
+                <div class="profile-info">
+                    <div class="info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">Umingan, Pangasinan</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">Available</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status</span>
+                        <span class="info-value">Open to Opportunities</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Specialization</span>
+                        <span class="info-value">Web & Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Learn more about my background and professional journey.</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Professional Profile</h3>
+                <p>
+                    I am a fresh graduate with a Bachelor of Science in Information Technology, specializing in web development and graphic design. I have experience creating professional social media graphics, website interfaces, presentations, and digital marketing materials using Canva and other design tools.
+                </p>
+                <p>
+                    Although I am a fresh graduate with no formal work experience, I am eager to learn, highly motivated, and committed to delivering quality work. I enjoy solving problems, learning new technologies, and collaborating with others to achieve project goals.
+                </p>
+                <p>
+                    My goal is to continuously improve my technical and creative skills while contributing positively to the organization I join.
+                </p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years ICT &amp; IT Study</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Dedication to Learning</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Languages Spoken</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Ready to Grow</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="container">
+        <div class="section-title">
+            <h2>Skills &amp; Expertise</h2>
+            <p>A combination of technical knowledge, creative ability, and professional skills.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>🎨 Graphic Design</h3>
+                <ul>
+                    <li>Canva Design</li>
+                    <li>Social Media Graphics</li>
+                    <li>Poster &amp; Banner Design</li>
+                    <li>Presentation Design</li>
+                    <li>Marketing Materials</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>💻 Web Development</h3>
+                <ul>
+                    <li>HTML5 &amp; CSS3</li>
+                    <li>Responsive Design</li>
+                    <li>Website Layout</li>
+                    <li>User Interface Design</li>
+                    <li>Basic Web Development</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🛠️ Technical Skills</h3>
+                <ul>
+                    <li>Microsoft Office Suite</li>
+                    <li>Computer Troubleshooting</li>
+                    <li>Basic Networking</li>
+                    <li>File Management</li>
+                    <li>Technical Support</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <h3>🤝 Soft Skills</h3>
+                <ul>
+                    <li>Quick Learner</li>
+                    <li>Team Collaboration</li>
+                    <li>Problem Solving</li>
+                    <li>Communication</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="education" class="education">
+    <div class="container">
+        <div class="section-title">
+            <h2>Education</h2>
+            <p>My academic journey and achievements.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2010 – 2016</div>
+                    <h3>Elementary Education</h3>
+                    <p>Esperanza Umingan Pangasinan, Umingan, Pangasinan</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2016 – 2020</div>
+                    <h3>Junior High School</h3>
+                    <p>Umingan National High School, Umingan, Pangasinan</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020 – 2022</div>
+                    <h3>Senior High School – ICT Strand</h3>
+                    <p>Umingan National High School, Umingan, Pangasinan</p>
+                    <span class="honor-badge">With Honor</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2022 – 2026</div>
+                    <h3>Bachelor of Science in Information Technology</h3>
+                    <p>University of Eastern Pangasinan, Binalonan, Pangasinan</p>
+                    <p><strong>Graduated</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <p>I am open to job opportunities, internships, and freelance projects.</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:Wincemendoza0911@gmail.com">Wincemendoza0911@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <a href="tel:+639953867698">+63 995 386 7698</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Brgy. Esperanza, Umingan, Pangasinan 2443</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Wincel A. Mendoza. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
